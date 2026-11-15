@@ -106,6 +106,7 @@ class MonitorControllerTests {
     @Test
     void shouldReturnNotFoundForMissingMonitor() throws Exception {
         mockMvc.perform(get("/api/monitors/-1"))
+                .andDo(org.springframework.test.web.servlet.result.MockMvcResultHandlers.print())
                 .andExpect(status().isNotFound());
     }
 
