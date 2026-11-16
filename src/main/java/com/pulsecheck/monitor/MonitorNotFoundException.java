@@ -1,8 +1,10 @@
 package com.pulsecheck.monitor;
 
-public class MonitorNotFoundException extends RuntimeException {
+import com.pulsecheck.common.exception.ResourceNotFoundException;
+
+public class MonitorNotFoundException extends ResourceNotFoundException {
 
     public MonitorNotFoundException(Long id) {
-        super("Monitor not found with id: " + id);
+        super("Monitor", id);
     }
 }
