@@ -1,7 +1,7 @@
-package com.pulsecheck.user.mapper;
+package com.pulsecheck.mapper;
 
-import com.pulsecheck.user.dto.UserResponse;
-import com.pulsecheck.user.entity.User;
+import com.pulsecheck.dto.UserResponse;
+import com.pulsecheck.entity.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

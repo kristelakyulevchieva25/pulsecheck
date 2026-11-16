@@ -1,6 +1,6 @@
-package com.pulsecheck.user.dto;
+package com.pulsecheck.dto;
 
-import com.pulsecheck.user.entity.Role;
+import com.pulsecheck.entity.Role;
 
 import java.time.Instant;
 

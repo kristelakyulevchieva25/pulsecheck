@@ -1,7 +1,7 @@
 package com.pulsecheck;
 
-import com.pulsecheck.user.entity.User;
-import com.pulsecheck.user.repository.UserRepository;
+import com.pulsecheck.entity.User;
+import com.pulsecheck.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

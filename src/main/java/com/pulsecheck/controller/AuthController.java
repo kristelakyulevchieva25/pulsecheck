@@ -1,8 +1,8 @@
-package com.pulsecheck.user.controller;
+package com.pulsecheck.controller;
 
-import com.pulsecheck.user.dto.RegisterRequest;
-import com.pulsecheck.user.dto.UserResponse;
-import com.pulsecheck.user.service.UserService;
+import com.pulsecheck.dto.RegisterRequest;
+import com.pulsecheck.dto.UserResponse;
+import com.pulsecheck.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;

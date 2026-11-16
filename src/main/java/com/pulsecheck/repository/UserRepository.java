@@ -1,6 +1,6 @@
-package com.pulsecheck.user.repository;
+package com.pulsecheck.repository;
 
-import com.pulsecheck.user.entity.User;
+import com.pulsecheck.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

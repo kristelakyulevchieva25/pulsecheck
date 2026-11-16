@@ -1,4 +1,4 @@
-package com.pulsecheck.user.entity;
+package com.pulsecheck.entity;
 
 public enum Role {
     USER,

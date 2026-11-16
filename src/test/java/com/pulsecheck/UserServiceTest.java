@@ -1,13 +1,13 @@
 package com.pulsecheck;
 
-import com.pulsecheck.common.exception.ConflictException;
-import com.pulsecheck.user.dto.RegisterRequest;
-import com.pulsecheck.user.dto.UserResponse;
-import com.pulsecheck.user.entity.Role;
-import com.pulsecheck.user.entity.User;
-import com.pulsecheck.user.mapper.UserMapper;
-import com.pulsecheck.user.repository.UserRepository;
-import com.pulsecheck.user.service.UserService;
+import com.pulsecheck.exception.ConflictException;
+import com.pulsecheck.dto.RegisterRequest;
+import com.pulsecheck.dto.UserResponse;
+import com.pulsecheck.entity.Role;
+import com.pulsecheck.entity.User;
+import com.pulsecheck.mapper.UserMapper;
+import com.pulsecheck.repository.UserRepository;
+import com.pulsecheck.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
