@@ -1,4 +1,4 @@
-package com.pulsecheck.common.exception;
+package com.pulsecheck.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;

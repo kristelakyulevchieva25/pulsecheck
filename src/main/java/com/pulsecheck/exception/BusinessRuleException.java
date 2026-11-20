@@ -1,4 +1,4 @@
-package com.pulsecheck.common.exception;
+package com.pulsecheck.exception;
 
 public class BusinessRuleException extends RuntimeException {
 

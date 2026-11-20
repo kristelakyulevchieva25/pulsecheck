@@ -1,4 +1,4 @@
-package com.pulsecheck.common.exception;
+package com.pulsecheck.exception;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
