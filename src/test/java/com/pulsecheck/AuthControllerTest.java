@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @Import(TestcontainersConfiguration.class)
 @Transactional
-class AuthControllerTests {
+class AuthControllerTest {
 
     private static final String REGISTER_URL = "/api/v1/auth/register";
 
