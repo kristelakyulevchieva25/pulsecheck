@@ -1,4 +1,4 @@
-package com.pulsecheck.monitor.dto;
+package com.pulsecheck.dto;
 
 import java.time.Instant;
 

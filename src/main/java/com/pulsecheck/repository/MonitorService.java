@@ -1,10 +1,9 @@
-package com.pulsecheck.monitor;
+package com.pulsecheck.repository;
 
-import com.pulsecheck.monitor.dto.CreateMonitorRequest;
-import com.pulsecheck.monitor.dto.MonitorResponse;
-import com.pulsecheck.monitor.dto.UpdateMonitorRequest;
-import com.pulsecheck.monitor.mapper.MonitorMapper;
-import com.pulsecheck.monitor.repository.MonitorRepository;
+import com.pulsecheck.dto.CreateMonitorRequest;
+import com.pulsecheck.dto.MonitorResponse;
+import com.pulsecheck.dto.UpdateMonitorRequest;
+import com.pulsecheck.mapper.MonitorMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,13 +32,29 @@ public class MonitorService {
         return monitorMapper.toResponse(savedMonitor);
     }
 
+
     @Transactional(readOnly = true)
     public List<MonitorResponse> getAllMonitors() {
-        return monitorRepository.findAll()
-                .stream()
+        return getAllMonitors(null);
+    }
+
+    @Transactional(readOnly = true)
+    public List<MonitorResponse> getAllMonitors(String tagName) {
+
+        List<Monitor> monitors;
+
+        if (tagName == null || tagName.isBlank()) {
+            monitors = monitorRepository.findAll();
+        } else {
+            monitors = monitorRepository
+                    .findDistinctByTags_NameIgnoreCase(tagName.trim());
+        }
+
+        return monitors.stream()
                 .map(monitorMapper::toResponse)
                 .toList();
     }
+
 
     @Transactional(readOnly = true)
     public MonitorResponse getMonitorById(Long id) {

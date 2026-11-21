@@ -1,11 +1,11 @@
 package com.pulsecheck;
 
-import com.pulsecheck.monitor.MonitorNotFoundException;
-import com.pulsecheck.monitor.MonitorService;
-import com.pulsecheck.monitor.dto.CreateMonitorRequest;
-import com.pulsecheck.monitor.dto.MonitorResponse;
-import com.pulsecheck.monitor.dto.UpdateMonitorRequest;
-import com.pulsecheck.monitor.repository.MonitorRepository;
+import com.pulsecheck.repository.MonitorNotFoundException;
+import com.pulsecheck.repository.MonitorService;
+import com.pulsecheck.dto.CreateMonitorRequest;
+import com.pulsecheck.dto.MonitorResponse;
+import com.pulsecheck.dto.UpdateMonitorRequest;
+import com.pulsecheck.repository.MonitorRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,11 @@
 package com.pulsecheck;
 
-import com.pulsecheck.monitor.MonitorService;
-import com.pulsecheck.monitor.dto.CreateMonitorRequest;
+import com.pulsecheck.dto.CreateMonitorRequest;
+import com.pulsecheck.repository.Monitor;
+import com.pulsecheck.repository.MonitorRepository;
+import com.pulsecheck.repository.MonitorService;
+import com.pulsecheck.repository.Tag;
+import com.pulsecheck.repository.TagRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
@@ -29,6 +33,12 @@ class MonitorControllerTests {
     @Autowired
     private MonitorService monitorService;
 
+    @Autowired
+    private MonitorRepository monitorRepository;
+
+    @Autowired
+    private TagRepository tagRepository;
+
     private Long createTestMonitor() {
         CreateMonitorRequest request = new CreateMonitorRequest();
         request.setName("Controller Test Monitor");
@@ -38,6 +48,24 @@ class MonitorControllerTests {
         request.setActive(true);
 
         return monitorService.createMonitor(request).getId();
+    }
+
+    private Monitor createMonitorWithTag(String monitorName, String tagName) {
+        Tag tag = new Tag();
+        tag.setName(tagName);
+
+        tagRepository.saveAndFlush(tag);
+
+        Monitor monitor = new Monitor();
+        monitor.setName(monitorName);
+        monitor.setUrl("https://example.com");
+        monitor.setIntervalSeconds(60);
+        monitor.setExpectedStatusCode(200);
+        monitor.setActive(true);
+
+        monitor.addTag(tag);
+
+        return monitorRepository.saveAndFlush(monitor);
     }
 
     @Test
@@ -142,5 +170,48 @@ class MonitorControllerTests {
                                 }
                                 """))
                 .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void shouldFilterMonitorsByTag() throws Exception {
+        createMonitorWithTag("Production Monitor", "Production");
+        createMonitorWithTag("Development Monitor", "Development");
+
+        mockMvc.perform(get("/api/monitors")
+                        .param("tag", "Production"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(1))
+                .andExpect(jsonPath("$[0].name").value("Production Monitor"));
+    }
+
+    @Test
+    void shouldFilterMonitorsByTagIgnoringCase() throws Exception {
+        createMonitorWithTag("Production Monitor", "Production");
+
+        mockMvc.perform(get("/api/monitors")
+                        .param("tag", "production"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(1))
+                .andExpect(jsonPath("$[0].name").value("Production Monitor"));
+    }
+
+    @Test
+    void shouldReturnAllMonitorsWhenTagIsNotProvided() throws Exception {
+        createMonitorWithTag("Production Monitor", "Production");
+        createMonitorWithTag("Development Monitor", "Development");
+
+        mockMvc.perform(get("/api/monitors"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(2));
+    }
+
+    @Test
+    void shouldReturnEmptyListWhenTagDoesNotExist() throws Exception {
+        createMonitorWithTag("Production Monitor", "Production");
+
+        mockMvc.perform(get("/api/monitors")
+                        .param("tag", "NonExistingTag"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(0));
     }
 }

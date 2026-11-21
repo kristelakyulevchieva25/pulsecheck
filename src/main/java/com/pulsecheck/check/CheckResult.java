@@ -1,7 +1,7 @@
 
 package com.pulsecheck.check;
 
-import com.pulsecheck.monitor.Monitor;
+import com.pulsecheck.repository.Monitor;
 import jakarta.persistence.*;
 
 import java.time.Instant;

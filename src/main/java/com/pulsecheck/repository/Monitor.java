@@ -1,5 +1,5 @@
 
-package com.pulsecheck.monitor;
+package com.pulsecheck.repository;
 
 import jakarta.persistence.*;
 import java.time.Instant;

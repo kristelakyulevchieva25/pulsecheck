@@ -1,4 +1,4 @@
-package com.pulsecheck.monitor;
+package com.pulsecheck.repository;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

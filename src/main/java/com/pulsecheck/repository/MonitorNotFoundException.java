@@ -1,4 +1,4 @@
-package com.pulsecheck.monitor;
+package com.pulsecheck.repository;
 
 import com.pulsecheck.exception.ResourceNotFoundException;
 
