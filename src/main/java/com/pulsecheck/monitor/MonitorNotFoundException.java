@@ -1,6 +1,6 @@
 package com.pulsecheck.monitor;
 
-import com.pulsecheck.common.exception.ResourceNotFoundException;
+import com.pulsecheck.exception.ResourceNotFoundException;
 
 public class MonitorNotFoundException extends ResourceNotFoundException {
 
