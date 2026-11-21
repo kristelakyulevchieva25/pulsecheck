@@ -46,6 +46,11 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.BAD_REQUEST, "Malformed request body", request);
     }
 
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ApiError> handleUnauthorized(UnauthorizedException ex, HttpServletRequest request) {
+        return build(HttpStatus.UNAUTHORIZED, ex.getMessage(), request);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiError> handleUnexpected(Exception ex, HttpServletRequest request) {
         if (ex instanceof ErrorResponse errorResponse) {
