@@ -1,7 +1,7 @@
 package com.pulsecheck;
 
-import com.pulsecheck.repository.MonitorNotFoundException;
-import com.pulsecheck.repository.MonitorService;
+import com.pulsecheck.exception.MonitorNotFoundException;
+import com.pulsecheck.service.MonitorService;
 import com.pulsecheck.dto.CreateMonitorRequest;
 import com.pulsecheck.dto.MonitorResponse;
 import com.pulsecheck.dto.UpdateMonitorRequest;

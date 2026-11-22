@@ -1,9 +1,9 @@
 
 package com.pulsecheck;
 
-import com.pulsecheck.check.CheckResult;
-import com.pulsecheck.check.repository.CheckResultRepository;
-import com.pulsecheck.repository.Monitor;
+import com.pulsecheck.entity.CheckResult;
+import com.pulsecheck.repository.CheckResultRepository;
+import com.pulsecheck.entity.Monitor;
 import com.pulsecheck.repository.MonitorRepository;
 
 import org.junit.jupiter.api.Test;

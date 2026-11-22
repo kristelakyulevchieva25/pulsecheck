@@ -1,7 +1,7 @@
 package com.pulsecheck;
 
-import com.pulsecheck.repository.Monitor;
-import com.pulsecheck.repository.Tag;
+import com.pulsecheck.entity.Monitor;
+import com.pulsecheck.entity.Tag;
 import com.pulsecheck.repository.MonitorRepository;
 import com.pulsecheck.repository.TagRepository;
 import jakarta.persistence.EntityManager;

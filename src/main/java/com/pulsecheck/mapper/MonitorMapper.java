@@ -1,6 +1,6 @@
 package com.pulsecheck.mapper;
 
-import com.pulsecheck.repository.Monitor;
+import com.pulsecheck.entity.Monitor;
 import com.pulsecheck.dto.CreateMonitorRequest;
 import com.pulsecheck.dto.MonitorResponse;
 import com.pulsecheck.dto.UpdateMonitorRequest;

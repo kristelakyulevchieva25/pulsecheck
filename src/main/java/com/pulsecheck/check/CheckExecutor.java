@@ -2,8 +2,9 @@
 package com.pulsecheck.check;
 
 import com.pulsecheck.check.event.CheckCompletedEvent;
-import com.pulsecheck.check.repository.CheckResultRepository;
-import com.pulsecheck.repository.Monitor;
+import com.pulsecheck.entity.CheckResult;
+import com.pulsecheck.entity.Monitor;
+import com.pulsecheck.repository.CheckResultRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationEventPublisher;

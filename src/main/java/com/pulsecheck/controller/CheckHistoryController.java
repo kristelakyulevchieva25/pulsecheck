@@ -1,7 +1,8 @@
 
-package com.pulsecheck.check;
+package com.pulsecheck.controller;
 
 import com.pulsecheck.check.dto.CheckHistoryResponse;
+import com.pulsecheck.service.CheckHistoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

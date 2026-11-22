@@ -1,12 +1,14 @@
 
-package com.pulsecheck.check;
+package com.pulsecheck.service;
 
 import com.pulsecheck.check.dto.CheckHistoryResponse;
 import com.pulsecheck.check.dto.CheckResultResponse;
-import com.pulsecheck.check.repository.CheckResultRepository;
-import com.pulsecheck.repository.Monitor;
-import com.pulsecheck.repository.MonitorNotFoundException;
+import com.pulsecheck.entity.CheckResult;
+import com.pulsecheck.entity.Monitor;
+import com.pulsecheck.exception.MonitorNotFoundException;
+import com.pulsecheck.repository.CheckResultRepository;
 import com.pulsecheck.repository.MonitorRepository;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
