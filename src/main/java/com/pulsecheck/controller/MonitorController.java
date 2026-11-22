@@ -1,13 +1,14 @@
-package com.pulsecheck.monitor;
+package com.pulsecheck.controller;
 
-import com.pulsecheck.monitor.dto.CreateMonitorRequest;
-import com.pulsecheck.monitor.dto.MonitorResponse;
-import com.pulsecheck.monitor.dto.UpdateMonitorRequest;
+import com.pulsecheck.dto.CreateMonitorRequest;
+import com.pulsecheck.dto.MonitorResponse;
+import com.pulsecheck.dto.UpdateMonitorRequest;
+import com.pulsecheck.service.MonitorService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import io.swagger.v3.oas.annotations.Parameter;
 import java.util.List;
 
 @RestController
@@ -31,10 +32,17 @@ public class MonitorController {
                 .body(response);
     }
 
+
     @GetMapping
-    public ResponseEntity<List<MonitorResponse>> getAllMonitors() {
-        return ResponseEntity.ok(monitorService.getAllMonitors());
+    public ResponseEntity<List<MonitorResponse>> getAllMonitors(
+            @Parameter(description = "Optional tag name to filter monitors")
+            @RequestParam(required = false) String tag
+    ) {
+        return ResponseEntity.ok(
+                monitorService.getAllMonitors(tag)
+        );
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<MonitorResponse> getMonitorById(

@@ -4,9 +4,9 @@ package com.pulsecheck;
 import com.pulsecheck.check.CheckExecutor;
 import com.pulsecheck.check.event.CheckCompletedEvent;
 import com.pulsecheck.entity.CheckResult;
-import com.pulsecheck.monitor.Monitor;
-import com.pulsecheck.monitor.repository.MonitorRepository;
+import com.pulsecheck.entity.Monitor;
 import com.pulsecheck.repository.CheckResultRepository;
+import com.pulsecheck.repository.MonitorRepository;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 

@@ -1,9 +1,9 @@
-package com.pulsecheck.monitor.mapper;
+package com.pulsecheck.mapper;
 
-import com.pulsecheck.monitor.Monitor;
-import com.pulsecheck.monitor.dto.CreateMonitorRequest;
-import com.pulsecheck.monitor.dto.MonitorResponse;
-import com.pulsecheck.monitor.dto.UpdateMonitorRequest;
+import com.pulsecheck.entity.Monitor;
+import com.pulsecheck.dto.CreateMonitorRequest;
+import com.pulsecheck.dto.MonitorResponse;
+import com.pulsecheck.dto.UpdateMonitorRequest;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;

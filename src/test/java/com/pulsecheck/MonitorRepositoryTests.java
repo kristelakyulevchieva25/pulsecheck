@@ -1,9 +1,9 @@
 package com.pulsecheck;
 
-import com.pulsecheck.monitor.Monitor;
-import com.pulsecheck.monitor.Tag;
-import com.pulsecheck.monitor.repository.MonitorRepository;
-import com.pulsecheck.monitor.repository.TagRepository;
+import com.pulsecheck.entity.Monitor;
+import com.pulsecheck.entity.Tag;
+import com.pulsecheck.repository.MonitorRepository;
+import com.pulsecheck.repository.TagRepository;
 import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

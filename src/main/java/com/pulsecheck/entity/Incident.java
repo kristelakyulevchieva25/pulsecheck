@@ -1,6 +1,5 @@
 package com.pulsecheck.entity;
 
-import com.pulsecheck.monitor.Monitor;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

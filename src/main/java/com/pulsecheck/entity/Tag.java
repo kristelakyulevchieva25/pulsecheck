@@ -1,5 +1,5 @@
 
-package com.pulsecheck.monitor;
+package com.pulsecheck.entity;
 
 import jakarta.persistence.*;
 import java.util.HashSet;
