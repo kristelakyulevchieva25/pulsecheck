@@ -49,3 +49,28 @@ Public endpoints: `/api/v1/auth/**`, Swagger UI (`/swagger-ui.html`) and `/statu
 Always set `JWT_SECRET` to your own value outside local development.
 
 Passwords must be 8-72 characters and at most 72 bytes in UTF-8, because BCrypt ignores anything beyond 72 bytes.
+
+## Teams
+
+Users can create teams and manage members with roles `OWNER`, `MEMBER` and `VIEWER`. All endpoints require a JWT.
+
+| Method | Path | Description |
+|---|---|---|
+| POST | `/api/v1/teams` | Create a team; the creator becomes its `OWNER` |
+| GET | `/api/v1/teams` | List the current user's teams |
+| GET | `/api/v1/teams/{teamId}/members` | List members (team members only) |
+| POST | `/api/v1/teams/{teamId}/members` | Add a member by email (`OWNER` only) |
+| PUT | `/api/v1/teams/{teamId}/members/{userId}/role` | Change a member's role (`OWNER` only) |
+| DELETE | `/api/v1/teams/{teamId}/members/{userId}` | Remove a member, or leave the team yourself |
+
+A team always keeps at least one `OWNER`: demoting or removing the last one returns `422`.
+
+### Demo data
+
+Start the application with the `dev` profile to create a demo account and team:
+
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+Log in as `demo@pulsecheck.com` / `demo12345` (team `Demo Team`, with `colleague@pulsecheck.com` as a member).
