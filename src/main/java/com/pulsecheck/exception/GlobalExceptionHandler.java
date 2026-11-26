@@ -66,6 +66,11 @@ public class GlobalExceptionHandler {
         return build(HttpStatus.INTERNAL_SERVER_ERROR, "An unexpected error occurred", request);
     }
 
+    @ExceptionHandler(InvalidIncidentTransitionException.class)
+    public ResponseEntity<ApiError> handleInvalidTransition(InvalidIncidentTransitionException ex, HttpServletRequest request) {
+        return build(HttpStatus.CONFLICT, ex.getMessage(), request);
+    }
+
     private ResponseEntity<ApiError> build(HttpStatus status, String message, HttpServletRequest request) {
         ApiError body = ApiError.of(status, message, request.getRequestURI());
         return ResponseEntity.status(status).body(body);
