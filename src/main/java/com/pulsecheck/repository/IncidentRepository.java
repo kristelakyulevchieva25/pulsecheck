@@ -11,5 +11,5 @@ import java.util.Optional;
 @Repository
 public interface IncidentRepository extends JpaRepository<Incident, Long> {
     List<Incident> findByMonitorId(Long monitorId);
-    Optional<Incident> findByMonitorIdAndStatus(Long monitorId, IncidentStatus status);
+    Optional<Incident> findFirstByMonitorIdAndStatusNot(Long monitorId, IncidentStatus status);
 }

@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface CheckResultRepository extends JpaRepository<CheckResult, Long> {
     List<CheckResult> findByMonitorIdOrderByCheckedAtDesc(Long monitorId);
+    List<CheckResult> findTop3ByMonitorIdOrderByCheckedAtDesc(Long monitorId);
 }
